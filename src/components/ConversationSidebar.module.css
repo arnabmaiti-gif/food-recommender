@@ -47,8 +47,8 @@
   color: var(--text-secondary);
 }
 .brandDot {
-  color: var(--accent-gold);
-  filter: drop-shadow(0 0 6px var(--accent-gold-glow));
+  color: var(--accent-berry);
+  filter: drop-shadow(0 0 6px var(--accent-berry-glow));
   font-size: 0.95rem;
   line-height: 1;
 }
@@ -59,9 +59,9 @@
   gap: 6px;
   padding: 6px 10px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--accent-gold-dim);
+  border: 1px solid var(--accent-berry-dim);
   background: rgba(245, 200, 66, 0.08);
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
@@ -74,7 +74,7 @@
 }
 .newBtn:hover:not(:disabled) {
   background: rgba(245, 200, 66, 0.16);
-  border-color: var(--accent-gold);
+  border-color: var(--accent-berry);
   box-shadow: 0 0 12px rgba(245, 200, 66, 0.18);
 }
 .newBtn:active:not(:disabled) {
@@ -134,7 +134,7 @@
 
 .itemActive {
   background: linear-gradient(180deg, rgba(245, 200, 66, 0.12), rgba(245, 200, 66, 0.04));
-  border-color: var(--accent-gold-dim);
+  border-color: var(--accent-berry-dim);
   color: var(--text-primary);
   box-shadow: inset 0 0 0 1px rgba(245, 200, 66, 0.06),
               0 0 18px rgba(245, 200, 66, 0.05);
@@ -157,7 +157,7 @@
   text-overflow: ellipsis;
 }
 .itemActive .itemTitle {
-  color: var(--accent-gold);
+  color: var(--accent-berry);
 }
 .itemTime {
   flex-shrink: 0;
@@ -252,7 +252,7 @@
   width: 22px;
   height: 22px;
   border: 2px solid var(--bg-border);
-  border-top-color: var(--accent-gold);
+  border-top-color: var(--accent-berry);
   border-radius: 50%;
   animation: sidebarSpin 0.8s linear infinite;
 }
@@ -285,7 +285,7 @@
 .loadMore:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
-  border-color: var(--accent-gold-dim);
+  border-color: var(--accent-berry-dim);
 }
 .loadMore:disabled {
   opacity: 0.5;

@@ -1,50 +1,69 @@
-# Claude Agent Starter (Python)
+# TasteBud 🍨 — a food concierge that remembers how you eat
 
-A full-stack EdgeOne Makers Agent template — streaming chat backed by the Claude Agent SDK (Python), with EdgeOne sandbox tools wired in via MCP and conversation memory persisted through `context.agent.store`.
+A conversational food-recommendation agent built with the **Claude Agent SDK (Python)** on
+**Tencent EdgeOne Makers**. Ask it for dessert, lunch, coffee, or dinner and it returns 2–3
+curated places — each with a *why* traced to your own order history, your past feedback, and
+your preset requirements (like a peanut allergy).
 
-**Framework:** Claude Agent SDK · **Category:** Quick Start <!-- TODO: confirm --> · **Language:** Python
+Built on the [claude-agent-starter-python](https://github.com/TencentEdgeOne/claude-agent-starter-python)
+EdgeOne Makers template (SSE streaming chat, sandbox tools via MCP, conversation persistence).
 
 [![Deploy to EdgeOne Makers](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/makers/new?template=claude-agent-starter-python&from=within&fromAgent=1&agentLang=python)
 
-<!-- ![preview](./assets/preview.png)  TODO: confirm -->
+## What it does
 
-## Overview
+1. **You ask for food** — "I'm craving dessert."
+2. **It applies hard filters first** — the peanut allergy from your profile is non-negotiable;
+   item-level: a place can survive with safe items, but the agent names what to avoid there.
+3. **It mines your history for patterns** — for *this* category: do you pick low-sugar options?
+   What's your rating floor? Small quiet café or big lively spot? Do you go to work on your
+   laptop, to relax, or to socialize? Solo or with friends? Dine-in or pickup?
+4. **It applies your past feedback** — the bakery you rated 2★ ("frosting way too sweet") gets
+   skipped, and the agent quotes your own review to explain why.
+5. **It answers with 2–3 options**, best first, each with a one-line why built from real
+   evidence: *"low-sugar picks in 5 of your 6 dessert runs"*.
+6. **Not satisfied?** It asks 2–3 sharp questions — pre-filled with the answer your history
+   predicts ("solo with the laptop like usual, or a social one?") — then re-ranks.
+7. **When you choose**, it records the decision to `taste-memory.json` in the sandbox so future
+   sessions keep learning.
 
-A minimal, production-shaped Python starter that wires the Claude Agent SDK into EdgeOne Makers. Demonstrates the full chat loop — SSE streaming, sandbox tool calls, conversation persistence — so you can fork it and start replacing prompts and tools instead of plumbing.
+## Where the "brain" lives
 
-- **SSE streaming chat** — token-by-token `text_delta` events, plus `tool_called` events whenever the model invokes a tool.
-- **Sandbox tools via MCP** — `commands`, `files`, `code_interpreter`, `browser` are wrapped as `SdkMcpTool`s and registered through `create_sdk_mcp_server`, then handed to Claude via `mcp_servers`.
-- **Sticky conversation memory** — Claude transcript stored in `context.store.claude_session_store()`; user/assistant messages mirrored via `store.append_message()` for replayable history.
-- **Dual cancellation** — frontend `AbortController` plus backend `context.utils.abort_active_run()` so `/stop` actually interrupts the LLM call.
-- **Two-folder backend** — long-running stateful work in `agents/`, short stateless CRUD in `cloud-functions/`.
+| Piece | Path |
+|---|---|
+| Concierge behavior (system prompt) | `agents/chat/index.py` |
+| Recommendation method | `.claude/skills/food-concierge/SKILL.md` |
+| Preset requirements (allergies, settings) | `.claude/skills/food-concierge/references/profile.json` |
+| Restaurant catalog (12 synthetic places) | `.claude/skills/food-concierge/references/restaurants.json` |
+| Order history (12 synthetic sessions) | `.claude/skills/food-concierge/references/order_history.json` |
+| Post-visit feedback (9 synthetic reviews) | `.claude/skills/food-concierge/references/feedback.json` |
+
+The synthetic data is crafted so real patterns emerge: a peanut allergy, a strong low-sugar
+dessert habit, a preference for quiet small cafés with wifi (dessert = solo work sessions),
+one social exception (dessert bar with friends), a 2★ grudge against a too-sweet bakery, and a
+rating floor of ~4.4.
+
+The agent reads these files through the Claude Agent SDK's project-skill mechanism (`Skill` +
+`Read`, scoped to `.claude/skills/**`) — you can watch the reads happen live in the app's
+Trace panel.
+
+## Demo
+
+Follow [`DEMO_SCRIPT.md`](./DEMO_SCRIPT.md) for a 5-minute walkthrough (happy path → refinement
+→ choice memory → allergy handling in another category). The original product spec is in
+[`docs/PRD.md`](./docs/PRD.md).
 
 ## Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `AI_GATEWAY_API_KEY` | Yes | Model gateway API key. Use your Makers Models API Key, or any OpenAI-compatible provider key. |
+| `AI_GATEWAY_API_KEY` | Yes | Model gateway API key. Use your Makers Models API Key, or any compatible provider key. |
 | `AI_GATEWAY_BASE_URL` | Yes | Gateway base URL. For Makers Models, use `https://ai-gateway.edgeone.link/v1`. |
-| `AI_GATEWAY_MODEL` | No | Model ID. Defaults to `@makers/deepseek-v4-flash` (a free built-in model). |
-| `WSA_API_KEY` | No | Tencent Cloud Web Search API key. Required only if you use the web-search tool. |
+| `AI_GATEWAY_MODEL` | No | Model ID. Defaults to `@makers/deepseek-v4-flash` (free built-in model). |
 
-This template follows the OpenAI-compatible standard — point these at Makers Models or any compatible provider.
-
-### How to get `AI_GATEWAY_API_KEY`
-
-1. Open the [Makers Console](https://edgeone.ai/makers/new?s_url=https://console.tencentcloud.com/edgeone/makers).
-2. Sign in and enable Makers.
-3. Go to **Makers → Models → API Key** and create a key.
-4. Copy it into `AI_GATEWAY_API_KEY`.
-
-The built-in `@makers/deepseek-v4-flash` model is free with a usage cap and is suitable for prototyping. For production, bind your own paid provider (BYOK).
-
-### How to get `WSA_API_KEY`
-
-`WSA_API_KEY` is only needed when calling the web-search tool. See the [documentation](https://pages.edgeone.ai/document/sandbox-network-search-tool).
-
-### Provider fallbacks
-
-`agents/_model.py` also reads `ANTHROPIC_API_KEY` / `ANTHROPIC_BASE_URL` / `ANTHROPIC_CUSTOM_HEADERS` directly — useful if you want to call the Anthropic API instead of going through a gateway. If both sets are present, the gateway variables take precedence. Set `AI_GATEWAY_SMALL_MODEL` (or `ANTHROPIC_SMALL_FAST_MODEL`) to override the small model the SDK uses for internal sub-calls.
+`agents/_model.py` also reads `ANTHROPIC_API_KEY` / `ANTHROPIC_BASE_URL` directly if you prefer
+calling the Anthropic API without a gateway. To get an `AI_GATEWAY_API_KEY`: open the
+[Makers Console](https://console.tencentcloud.com/edgeone/makers) → **Models → API Key**.
 
 ## Local Development
 
@@ -53,49 +72,35 @@ Prerequisites: Node.js ≥ 18, Python ≥ 3.10, and the EdgeOne CLI (`npm i -g e
 ```bash
 npm install
 pip install -r agents/requirements.txt
-cp .env.example .env       # then fill in AI_GATEWAY_API_KEY / AI_GATEWAY_BASE_URL
+cp .env.example .env       # fill in AI_GATEWAY_API_KEY / AI_GATEWAY_BASE_URL
 edgeone makers dev
 ```
 
-Local agent metrics & traces are exposed at `http://localhost:8080/agent-metrics`.
+Local agent metrics & traces: `http://localhost:8080/agent-metrics`.
 
 ## Project Structure
 
 ```text
-claude-agent-starter-python/
+food-recommender/
+├── .claude/skills/food-concierge/   # The recommendation method + synthetic taste data
+│   ├── SKILL.md
+│   └── references/{profile,restaurants,order_history,feedback}.json
 ├── agents/                          # Stateful EdgeOne Makers Agent Functions (Python)
-│   ├── chat/index.py               # POST /chat — SSE streaming chat
-│   ├── stop/index.py               # POST /stop — abort active agent run
-│   ├── _model.py                   # Model & gateway env config (private)
-│   ├── _logger.py                  # Logger utility (private)
-│   ├── config.json                 # Route config
-│   └── requirements.txt            # Python agent dependencies
-├── cloud-functions/                 # Stateless EdgeOne Makers Python cloud functions
-│   ├── history/index.py            # POST /history — load conversation messages
-│   ├── conversations/index.py      # POST /conversations — list a user's conversations
-│   ├── clear-history/index.py      # POST /clear-history — clear messages of one conversation
-│   ├── delete-conversation/index.py # POST /delete-conversation — delete a conversation entirely
-│   ├── _logger.py                  # Logger utility
-│   ├── _redact.py                  # Sensitive-field redactor for logs
-│   └── requirements.txt            # Python cloud-function dependencies
-├── src/                             # React + Vite + TypeScript frontend
-│   ├── App.tsx                     # Conversation ID + SSE stream orchestration
-│   ├── api.ts                      # /chat, /stop, /history, ... wrappers and SSE parser
-│   └── components/                 # ChatWindow, ChatInput, CodeViewer, ToolIndicators, ...
-├── package.json                     # Frontend dependencies
-├── edgeone.json                     # EdgeOne deployment config
-├── .env.example                     # Environment variables template
-├── vite.config.ts
-└── tsconfig.json
+│   ├── chat/index.py               # POST /chat — SSE streaming; TasteBud system prompt
+│   └── stop/index.py               # POST /stop — abort active agent run
+├── cloud-functions/                 # Stateless CRUD: history, conversations, delete, clear
+├── src/                             # React + Vite + TypeScript chat frontend
+├── DEMO_SCRIPT.md                   # 5-minute demo walkthrough
+├── docs/PRD.md                      # Product requirements
+└── edgeone.json                     # EdgeOne deployment config
 ```
 
-> Files prefixed with `_` are private modules — not exposed as public routes.
+## Roadmap (post-MVP)
 
-## Resources
-
-- [EdgeOne Makers Agents — Documentation](https://pages.edgeone.ai/document/agents)
-- [EdgeOne Makers — Quick Start](https://pages.edgeone.ai/document/agents-quick-start)
-- [Makers Models](https://pages.edgeone.ai/document/models)
+- Real user accounts: per-user profile/history instead of synthetic files
+- Write chosen options back into the order history (full learning loop)
+- Live restaurant data (maps/reviews APIs) instead of a static catalog
+- Structured option cards in the UI (choose buttons, photos) on top of the markdown chat
 
 ## License
 

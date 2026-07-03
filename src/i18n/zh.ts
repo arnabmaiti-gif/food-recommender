@@ -1,27 +1,25 @@
 const zh = {
   // Header
-  "app.title": "Claude Agent Starter",
-  "app.subtitle": "运行在 EdgeOne Makers 环境中，支持沙箱工具、会话记忆与可观测",
+  "app.title": "TasteBud 味蕾管家",
+  "app.subtitle": "记得你怎么吃的美食推荐助手 —— 过敏、口味、习惯都记在心里",
 
   // Empty state
-  "empty.title": "Claude Agent Starter",
-  "empty.hint": "我是运行在 EdgeOne 环境中的 Claude 助手，可以调用沙箱工具、保存会话记忆，并帮助你完成各项任务。",
-  "empty.features": "沙箱工具 · Store 会话记忆 · 自动可观测",
+  "empty.title": "今天想吃点什么？",
+  "empty.hint": "我是 TasteBud。我了解你的点单历史、你的评价、还有你的花生过敏 —— 想吃甜品、午餐、咖啡或晚餐，直接说，我会挑 2–3 家并解释为什么适合你。",
+  "empty.features": "2–3 个精选推荐 · 理由来自你自己的历史 · 过敏安全",
 
   // Chat input
-  "chat.placeholder": "发消息…  ⏎ 发送 · Shift+⏎ 换行",
-  "chat.hint": "由 Claude Agent SDK + EdgeOne Makers 驱动 · 仅供演示",
+  "chat.placeholder": "想吃点什么？  ⏎ 发送 · Shift+⏎ 换行",
+  "chat.hint": "TasteBud 演示 · Claude Agent SDK + EdgeOne Makers · 合成口味数据",
 
   // Preset questions
-  "preset.1": "使用终端命令检查当前系统时间和操作系统版本。",
-  "preset.2": "创建 /tmp/fib.py，写入计算斐波那契数列前 10 项的 Python 代码并执行，将结果打印出来。",
-  "preset.4": "访问 https://edgeone.ai 并总结页面内容。",
-  "preset.screenshotEdgeOne": "截取 edgeone.ai 的网页图片。",
-  "preset.skill.sandboxAlgorithms": "计算斐波那契数列前 20 个，并给出执行结果。",
+  "preset.dessert": "我想吃甜品",
+  "preset.lunch": "在公司附近能快速自取的午餐",
+  "preset.coffee": "找个能安静工作几小时的咖啡馆",
 
   // Tool indicators
   "tool.commands": "终端命令",
-  "tool.files": "文件操作",
+  "tool.files": "口味记忆",
   "tool.codeRunner": "代码解释器",
   "tool.browser": "浏览器",
 
@@ -30,14 +28,14 @@ const zh = {
   "webSearch.error.wsaCta": "获取 Key",
 
   // Skill indicators
-  "skill.sandboxAlgorithms": "沙箱算法执行",
+  "skill.foodConcierge": "美食管家",
 
   // Debug panel
   "debug.title": "传输流",
   "debug.events": "事件",
   "debug.clear": "清除",
   "debug.empty": "等待 SSE 事件...",
-  "debug.emptyHint": "发送消息后，所有原始后端数据将在此处显示。",
+  "debug.emptyHint": "发送消息后，可以在这里看到 Agent 读取你的口味数据的全过程。",
 
   // Status & errors
   "status.error": "⚠️ 请求失败，请检查后端服务是否启动。",
@@ -49,13 +47,13 @@ const zh = {
 
   // Sidebar
   "sidebar.label": "会话列表",
-  "sidebar.title": "会话",
-  "sidebar.newChat": "新建聊天",
+  "sidebar.title": "想吃的",
+  "sidebar.newChat": "新的想法",
   "sidebar.loading": "正在加载会话...",
   "sidebar.loadMore": "加载更多",
   "sidebar.loadingMore": "加载中...",
   "sidebar.emptyTitle": "暂无会话",
-  "sidebar.emptyHint": "点击「新建聊天」开始第一段对话。",
+  "sidebar.emptyHint": "点击「新的想法」，告诉我你想吃什么。",
   "sidebar.delete": "删除会话",
   "sidebar.deleteConfirm": "确定要永久删除这个会话吗？此操作不可恢复。",
 

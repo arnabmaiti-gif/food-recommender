@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useT } from '../i18n';
 
-const REPO_URL = 'https://github.com/TencentEdgeOne/claude-agent-starter-python';
+const REPO_URL = 'https://github.com/arnabmaiti-gif/food-recommender';
 
 /**
  * Floating GitHub badge anchored to the bottom-right viewport corner.

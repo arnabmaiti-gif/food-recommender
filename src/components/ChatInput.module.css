@@ -36,9 +36,9 @@
     background var(--transition-fast);
 }
 .presetChip:hover:not(:disabled) {
-  color: var(--accent-gold);
-  border-color: var(--accent-gold);
-  background: var(--accent-gold-dim);
+  color: var(--accent-berry);
+  border-color: var(--accent-berry);
+  background: var(--accent-berry-dim);
 }
 .presetChip:disabled {
   opacity: .4;
@@ -56,8 +56,8 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .inputWrap:focus-within {
-  border-color: var(--accent-gold-glow);
-  box-shadow: 0 0 0 3px var(--accent-gold-dim);
+  border-color: var(--accent-berry-glow);
+  box-shadow: 0 0 0 3px var(--accent-berry-dim);
 }
 .inputDisabled {
   opacity: .6;
@@ -86,7 +86,7 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: var(--accent-gold);
+  background: var(--accent-berry);
   color: #0a0a0f;
   display: flex;
   align-items: center;
@@ -96,12 +96,12 @@
   transition: background var(--transition-fast),
               transform var(--transition-fast),
               box-shadow var(--transition-fast);
-  box-shadow: 0 0 12px var(--accent-gold-glow);
+  box-shadow: 0 0 12px var(--accent-berry-glow);
 }
 .sendBtn:hover:not(:disabled) {
   background: #ffe066;
   transform: scale(1.07);
-  box-shadow: 0 0 20px var(--accent-gold-glow);
+  box-shadow: 0 0 20px var(--accent-berry-glow);
 }
 .sendBtn:active:not(:disabled) { transform: scale(.95); }
 .sendDisabled {

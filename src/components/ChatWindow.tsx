@@ -30,7 +30,7 @@ export default function ChatWindow({ messages, loading }: Props) {
     <div ref={windowRef} className={styles.window}>
       {messages.length === 0 && (
         <div className={styles.empty}>
-          <span className={styles.emptyIcon}>⬡</span>
+          <span className={styles.emptyIcon}>❋</span>
           <p className={styles.emptyTitle}>{t("empty.title")}</p>
           <p className={styles.emptyHint}>
             {t("empty.hint")}
@@ -52,7 +52,7 @@ export default function ChatWindow({ messages, loading }: Props) {
        * bubbles in the same turn. */}
       {loading && !(messages.length > 0 && messages[messages.length - 1].role === 'assistant' && (messages[messages.length - 1].content.length > 0 || messages[messages.length - 1].activity)) && (
         <div className={styles.typingRow}>
-          <div className={styles.avatar}>⬡</div>
+          <div className={styles.avatar}>❋</div>
           <div className={styles.typing}>
             <span />
             <span />

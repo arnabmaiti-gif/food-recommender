@@ -1,0 +1,17 @@
+{
+  "user": {
+    "name": "Arnab",
+    "neighborhood": "Maple District",
+    "work": "4th & Pine, Maple District"
+  },
+  "preset_requirements": {
+    "allergies": ["peanut"],
+    "allergy_policy": "Never suggest items containing peanut. A place may still be recommended for its safe items, but always name what to avoid there.",
+    "dietary_rules": [],
+    "app_settings": {
+      "max_walk_minutes": 20,
+      "price_ceiling": "$$$",
+      "min_rating_hint": 4.2
+    }
+  }
+}

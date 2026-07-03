@@ -1,27 +1,25 @@
 const en = {
   // Header
-  "app.title": "Claude Agent Starter",
-  "app.subtitle": "Running on EdgeOne Makers with sandbox tools, session memory & observability",
+  "app.title": "TasteBud",
+  "app.subtitle": "A food concierge that remembers how you eat — allergies, taste, habits",
 
   // Empty state
-  "empty.title": "Claude Agent Starter",
-  "empty.hint": "I'm a Claude assistant running on EdgeOne. I can call sandbox tools, persist session memory, and help you with debugging, file management, code execution, and web browsing.",
-  "empty.features": "Sandbox Tools · Store Memory · Observability",
+  "empty.title": "What are you craving?",
+  "empty.hint": "I'm TasteBud. I know your order history, your feedback, and your peanut allergy — ask me for dessert, lunch, coffee or dinner and I'll pick 2–3 places and tell you exactly why each one fits you.",
+  "empty.features": "2–3 curated picks · reasons from your own history · allergy-aware",
 
   // Chat input
-  "chat.placeholder": "Type a message...  ⏎ Send · Shift+⏎ Newline",
-  "chat.hint": "Powered by Claude Agent SDK + EdgeOne Makers · Demo only",
+  "chat.placeholder": "What are you craving?  ⏎ Send · Shift+⏎ Newline",
+  "chat.hint": "TasteBud demo · Claude Agent SDK on EdgeOne Makers · synthetic taste data",
 
   // Preset questions
-  "preset.1": "Use terminal commands to check the current system time and OS version.",
-  "preset.2": "Create /tmp/fib.py, write Python code to calculate the first 10 Fibonacci numbers, execute it, and print the result.",
-  "preset.4": "Visit https://edgeone.ai and summarize the page content.",
-  "preset.screenshotEdgeOne": "Take a screenshot of edgeone.ai.",
-  "preset.skill.sandboxAlgorithms": "Calculate the first 20 Fibonacci numbers and provide the execution result.",
+  "preset.dessert": "I'm craving dessert",
+  "preset.lunch": "Quick lunch I can pick up near the office",
+  "preset.coffee": "Find me a coffee spot where I can work for a few hours",
 
   // Tool indicators
   "tool.commands": "Commands",
-  "tool.files": "Files",
+  "tool.files": "Taste Memory",
   "tool.codeRunner": "Code Runner",
   "tool.browser": "Browser",
 
@@ -30,14 +28,14 @@ const en = {
   "webSearch.error.wsaCta": "Get a key",
 
   // Skill indicators
-  "skill.sandboxAlgorithms": "Sandbox Algorithms",
+  "skill.foodConcierge": "Food Concierge",
 
   // Debug panel
   "debug.title": "Trace",
   "debug.events": "events",
   "debug.clear": "Clear",
   "debug.empty": "Waiting for SSE events...",
-  "debug.emptyHint": "After sending a message, all raw backend data will be displayed here.",
+  "debug.emptyHint": "After sending a message, you can watch the agent read your taste data here.",
 
   // Status & errors
   "status.error": "Request failed. Please check if the backend service is running.",
@@ -49,13 +47,13 @@ const en = {
 
   // Sidebar
   "sidebar.label": "Conversation list",
-  "sidebar.title": "Chats",
-  "sidebar.newChat": "New chat",
+  "sidebar.title": "Cravings",
+  "sidebar.newChat": "New craving",
   "sidebar.loading": "Loading conversations...",
   "sidebar.loadMore": "Load more",
   "sidebar.loadingMore": "Loading...",
   "sidebar.emptyTitle": "No conversations yet",
-  "sidebar.emptyHint": "Click \"New chat\" to start your first conversation.",
+  "sidebar.emptyHint": "Click \"New craving\" and tell me what you feel like eating.",
   "sidebar.delete": "Delete conversation",
   "sidebar.deleteConfirm": "Permanently delete this conversation? This cannot be undone.",
 
