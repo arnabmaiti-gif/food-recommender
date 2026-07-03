@@ -39,10 +39,10 @@ keep learning.
 | Requirement | Implementation |
 |---|---|
 | Conversational request intake | Chat UI (React + SSE streaming) |
-| Past request/choice history | `references/order_history.json` (12 synthetic sessions) |
+| Past request/choice history | `agents/chat/knowledge/references/order_history.json` (12 synthetic sessions) |
 | Pattern mining + 2–3 explained options | Claude Agent SDK + `food-concierge` skill method |
-| Past feedback curation | `references/feedback.json` (9 synthetic reviews) |
-| Preset requirements / allergies | `references/profile.json` (peanut allergy, app settings) |
+| Past feedback curation | `agents/chat/knowledge/references/feedback.json` (9 synthetic reviews) |
+| Preset requirements / allergies | `agents/chat/knowledge/references/profile.json` (peanut allergy, app settings) |
 | Refinement with predicted context | Skill step 5 (predicted clarifying questions) |
 | Choice recording | `taste-memory.json` via sandbox `files` tool |
 

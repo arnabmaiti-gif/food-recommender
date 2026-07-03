@@ -45,6 +45,9 @@ CLAUDE.md
 AGENTS.md
 .claude/settings.local.json
 
+# Materialized at cold start from agents/chat/knowledge/ (canonical source)
+.claude/skills/food-concierge/
+
 # Tencent Cloud EdgeOne
 .env
 .edgeone/*
