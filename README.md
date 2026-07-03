@@ -32,11 +32,11 @@ EdgeOne Makers template (SSE streaming chat, sandbox tools via MCP, conversation
 | Piece | Path |
 |---|---|
 | Concierge behavior (system prompt) | `agents/chat/index.py` |
-| Recommendation method | `.claude/skills/food-concierge/SKILL.md` |
-| Preset requirements (allergies, settings) | `.claude/skills/food-concierge/references/profile.json` |
-| Restaurant catalog (12 synthetic places) | `.claude/skills/food-concierge/references/restaurants.json` |
-| Order history (12 synthetic sessions) | `.claude/skills/food-concierge/references/order_history.json` |
-| Post-visit feedback (9 synthetic reviews) | `.claude/skills/food-concierge/references/feedback.json` |
+| Recommendation method | `agents/chat/knowledge/SKILL.md` |
+| Preset requirements (allergies, settings) | `agents/chat/knowledge/references/profile.json` |
+| Restaurant catalog (12 synthetic places) | `agents/chat/knowledge/references/restaurants.json` |
+| Order history (12 synthetic sessions) | `agents/chat/knowledge/references/order_history.json` |
+| Post-visit feedback (9 synthetic reviews) | `agents/chat/knowledge/references/feedback.json` |
 
 The synthetic data is crafted so real patterns emerge: a peanut allergy, a strong low-sugar
 dessert habit, a preference for quiet small cafés with wifi (dessert = solo work sessions),
@@ -45,7 +45,9 @@ rating floor of ~4.4.
 
 The agent reads these files through the Claude Agent SDK's project-skill mechanism (`Skill` +
 `Read`, scoped to `.claude/skills/**`) — you can watch the reads happen live in the app's
-Trace panel.
+Trace panel. The canonical copy lives in `agents/chat/knowledge/` (deploy bundles reliably
+ship files next to the handler, but not dot-directories) and is materialized into
+`{cwd}/.claude/skills/food-concierge/` at cold start.
 
 ## Demo
 
@@ -83,11 +85,11 @@ Local agent metrics & traces: `http://localhost:8080/agent-metrics`.
 
 ```text
 food-recommender/
-├── .claude/skills/food-concierge/   # The recommendation method + synthetic taste data
-│   ├── SKILL.md
-│   └── references/{profile,restaurants,order_history,feedback}.json
 ├── agents/                          # Stateful EdgeOne Makers Agent Functions (Python)
 │   ├── chat/index.py               # POST /chat — SSE streaming; TasteBud system prompt
+│   ├── chat/knowledge/             # Recommendation method + synthetic taste data
+│   │   ├── SKILL.md               #   (materialized to .claude/skills/ at cold start)
+│   │   └── references/{profile,restaurants,order_history,feedback}.json
 │   └── stop/index.py               # POST /stop — abort active agent run
 ├── cloud-functions/                 # Stateless CRUD: history, conversations, delete, clear
 ├── src/                             # React + Vite + TypeScript chat frontend

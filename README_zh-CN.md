@@ -22,11 +22,14 @@
 | 组件 | 路径 |
 |---|---|
 | 管家行为（系统提示词） | `agents/chat/index.py` |
-| 推荐方法论 | `.claude/skills/food-concierge/SKILL.md` |
-| 预设要求（过敏、设置） | `.claude/skills/food-concierge/references/profile.json` |
-| 餐厅目录（12 家合成数据） | `.claude/skills/food-concierge/references/restaurants.json` |
-| 点单历史（12 次会话） | `.claude/skills/food-concierge/references/order_history.json` |
-| 用后评价（9 条） | `.claude/skills/food-concierge/references/feedback.json` |
+| 推荐方法论 | `agents/chat/knowledge/SKILL.md` |
+| 预设要求（过敏、设置） | `agents/chat/knowledge/references/profile.json` |
+| 餐厅目录（12 家合成数据） | `agents/chat/knowledge/references/restaurants.json` |
+| 点单历史（12 次会话） | `agents/chat/knowledge/references/order_history.json` |
+| 用后评价（9 条） | `agents/chat/knowledge/references/feedback.json` |
+
+> 数据的规范副本放在 `agents/chat/knowledge/`（部署打包一定会带上 handler 旁边的文件，
+> 但不一定带 dot 目录），冷启动时自动物化到 `{cwd}/.claude/skills/food-concierge/`。
 
 ## 环境变量
 

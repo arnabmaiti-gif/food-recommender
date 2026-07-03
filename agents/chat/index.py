@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import shutil
 import time
 from typing import Any, AsyncGenerator
 from uuid import UUID
@@ -56,6 +57,37 @@ from ._stream import (
 logger = create_logger("chat")
 HEARTBEAT_INTERVAL_S = 5
 MCP_SERVER_NAME = "edgeone"
+
+# Canonical knowledge base — lives NEXT TO this file so every deploy bundle
+# that ships the handler also ships the data. Dot-directories like .claude/
+# are not reliably included by deployment packagers, so the repo no longer
+# tracks .claude/skills/food-concierge; it is materialized below instead.
+KNOWLEDGE_SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "knowledge")
+
+
+def ensure_food_concierge_skill() -> None:
+    """Materialize agents/chat/knowledge/ as the food-concierge project skill.
+
+    Copies SKILL.md + references/ into {cwd}/.claude/skills/food-concierge
+    (what the SDK loads via setting_sources=["project"]) and best-effort into
+    ~/.claude/skills for runtimes that resolve skills from $HOME.
+    """
+    if not os.path.isdir(KNOWLEDGE_SRC):
+        logger.error(f"[skill] knowledge source missing: {KNOWLEDGE_SRC}")
+        return
+    targets = [
+        os.path.join(os.getcwd(), ".claude", "skills", "food-concierge"),
+        os.path.join(os.path.expanduser("~"), ".claude", "skills", "food-concierge"),
+    ]
+    for target in targets:
+        try:
+            shutil.copytree(KNOWLEDGE_SRC, target, dirs_exist_ok=True)
+            logger.log(f"[skill] materialized food-concierge skill at {target}")
+        except Exception as e:  # noqa: BLE001 — never let bootstrap kill the handler
+            logger.error(f"[skill] failed to materialize skill at {target}: {e}")
+
+
+ensure_food_concierge_skill()  # module import == cold start, runs once per instance
 
 SYSTEM_PROMPT = """\
 You are TasteBud — a personal food concierge built with the Claude Agent SDK (Python) on EdgeOne Makers.
