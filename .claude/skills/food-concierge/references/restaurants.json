@@ -1,0 +1,226 @@
+{
+  "note": "Synthetic catalog for the TasteBud demo. All places are within walking distance of the user's Maple District home/office.",
+  "restaurants": [
+    {
+      "id": "amber-rye",
+      "name": "Amber & Rye Patisserie",
+      "type": "small cafe / patisserie",
+      "size": "small",
+      "categories": ["dessert", "coffee", "pastry"],
+      "rating": 4.7,
+      "price": "$$",
+      "walk_minutes": 8,
+      "ambience": { "noise": "quiet", "seats": 18, "laptop_friendly": true, "wifi": true, "outlets": "several" },
+      "good_for": ["solo-work", "relax", "reading"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "rye honey madeleines", "sweetness": "low", "allergens": [] },
+        { "name": "black sesame mille-feuille", "sweetness": "low", "allergens": [] },
+        { "name": "lemon tart", "sweetness": "medium", "allergens": [] }
+      ],
+      "notes": "Corner tables by the window; staff famously never rush laptop campers."
+    },
+    {
+      "id": "matcha-ya",
+      "name": "Matcha-ya Tea House",
+      "type": "tiny tea house",
+      "size": "small",
+      "categories": ["dessert", "tea"],
+      "rating": 4.8,
+      "price": "$$",
+      "walk_minutes": 12,
+      "ambience": { "noise": "very quiet", "seats": 12, "laptop_friendly": true, "wifi": true, "outlets": "few" },
+      "good_for": ["solo-work", "relax"],
+      "pickup": false,
+      "signature_items": [
+        { "name": "matcha kakigori", "sweetness": "low", "allergens": [] },
+        { "name": "hojicha pudding", "sweetness": "low", "allergens": [] },
+        { "name": "yuzu cheesecake", "sweetness": "medium", "allergens": [] }
+      ],
+      "notes": "Soft music only; feels like a library that serves dessert."
+    },
+    {
+      "id": "molten",
+      "name": "Molten Dessert Bar",
+      "type": "dessert bar",
+      "size": "large",
+      "categories": ["dessert", "drinks"],
+      "rating": 4.5,
+      "price": "$$$",
+      "walk_minutes": 14,
+      "ambience": { "noise": "lively", "seats": 60, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["groups", "date", "celebration"],
+      "pickup": false,
+      "signature_items": [
+        { "name": "tableside chocolate souffle", "sweetness": "high", "allergens": [] },
+        { "name": "praline tasting flight", "sweetness": "high", "allergens": ["peanut"] },
+        { "name": "smores board for two", "sweetness": "high", "allergens": [] }
+      ],
+      "notes": "Theatrical plating, loud on weekends; reservations recommended after 7pm."
+    },
+    {
+      "id": "sugar-rush",
+      "name": "Sugar Rush Bakehouse",
+      "type": "bakery counter",
+      "size": "small",
+      "categories": ["dessert", "pastry"],
+      "rating": 4.6,
+      "price": "$",
+      "walk_minutes": 6,
+      "ambience": { "noise": "crowded", "seats": 0, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["quick-treat"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "cinnamon roll with cream-cheese frosting", "sweetness": "high", "allergens": [] },
+        { "name": "funfetti layer cake", "sweetness": "high", "allergens": [] },
+        { "name": "peanut butter brownie", "sweetness": "high", "allergens": ["peanut"] }
+      ],
+      "notes": "Counter-service only, permanent line out the door."
+    },
+    {
+      "id": "cielo",
+      "name": "Cielo Gelato",
+      "type": "gelato bar",
+      "size": "small",
+      "categories": ["dessert"],
+      "rating": 4.4,
+      "price": "$",
+      "walk_minutes": 5,
+      "ambience": { "noise": "moderate", "seats": 6, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["quick-treat", "walk-and-eat"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "dark chocolate sorbetto", "sweetness": "low", "allergens": [] },
+        { "name": "pistachio gelato", "sweetness": "medium", "allergens": ["tree nut"] },
+        { "name": "peanut butter swirl", "sweetness": "high", "allergens": ["peanut"] }
+      ],
+      "notes": "Scoops use a shared case — staff will grab a clean scoop from the back on request."
+    },
+    {
+      "id": "copper-kettle",
+      "name": "The Copper Kettle",
+      "type": "large dessert cafe",
+      "size": "large",
+      "categories": ["dessert", "coffee", "brunch"],
+      "rating": 4.3,
+      "price": "$$",
+      "walk_minutes": 10,
+      "ambience": { "noise": "moderate", "seats": 80, "laptop_friendly": true, "wifi": true, "outlets": "some" },
+      "good_for": ["relax", "groups", "long-sits"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "warm apple pie", "sweetness": "medium", "allergens": [] },
+        { "name": "bread pudding", "sweetness": "medium", "allergens": [] }
+      ],
+      "notes": "Deep booths; open until midnight."
+    },
+    {
+      "id": "fern-filament",
+      "name": "Fern & Filament",
+      "type": "specialty coffee bar",
+      "size": "small",
+      "categories": ["coffee", "dessert", "pastry"],
+      "rating": 4.7,
+      "price": "$$",
+      "walk_minutes": 7,
+      "ambience": { "noise": "quiet", "seats": 24, "laptop_friendly": true, "wifi": true, "outlets": "every table" },
+      "good_for": ["solo-work", "meetings-for-two"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "canele", "sweetness": "low", "allergens": [] },
+        { "name": "oat milk latte", "sweetness": "low", "allergens": [] }
+      ],
+      "notes": "Mezzanine upstairs is the quiet zone; plugs at every table."
+    },
+    {
+      "id": "verde-bowls",
+      "name": "Verde Bowls",
+      "type": "fast-casual bowls",
+      "size": "small",
+      "categories": ["lunch"],
+      "rating": 4.5,
+      "price": "$$",
+      "walk_minutes": 3,
+      "ambience": { "noise": "moderate", "seats": 14, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["quick-lunch", "pickup"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "harissa chicken bowl", "sweetness": null, "allergens": [] },
+        { "name": "gado-gado bowl", "sweetness": null, "allergens": ["peanut"] }
+      ],
+      "notes": "Online ordering; happily swaps peanut sauce for tahini."
+    },
+    {
+      "id": "bo-bao",
+      "name": "Bo & Bao",
+      "type": "casual counter",
+      "size": "small",
+      "categories": ["lunch", "snack"],
+      "rating": 4.2,
+      "price": "$",
+      "walk_minutes": 4,
+      "ambience": { "noise": "moderate", "seats": 10, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["quick-lunch", "pickup"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "braised pork bao (3pc)", "sweetness": null, "allergens": [] },
+        { "name": "salted egg custard bao", "sweetness": "medium", "allergens": [] }
+      ],
+      "notes": "Fastest pickup on the block — under five minutes at noon."
+    },
+    {
+      "id": "nonna-lucia",
+      "name": "Nonna Lucia",
+      "type": "large Italian restaurant",
+      "size": "large",
+      "categories": ["dinner", "dessert"],
+      "rating": 4.6,
+      "price": "$$$",
+      "walk_minutes": 18,
+      "ambience": { "noise": "warm buzz", "seats": 90, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["date", "groups", "celebration"],
+      "pickup": false,
+      "signature_items": [
+        { "name": "tagliatelle al ragu", "sweetness": null, "allergens": [] },
+        { "name": "tiramisu", "sweetness": "medium-high", "allergens": [] }
+      ],
+      "notes": "Candlelit back room; book ahead on weekends."
+    },
+    {
+      "id": "han-river",
+      "name": "Han River BBQ",
+      "type": "large Korean BBQ",
+      "size": "large",
+      "categories": ["dinner"],
+      "rating": 4.4,
+      "price": "$$$",
+      "walk_minutes": 15,
+      "ambience": { "noise": "lively", "seats": 110, "laptop_friendly": false, "wifi": false, "outlets": "none" },
+      "good_for": ["groups", "celebration"],
+      "pickup": false,
+      "signature_items": [
+        { "name": "galbi set for the table", "sweetness": null, "allergens": [] },
+        { "name": "kimchi jjigae", "sweetness": null, "allergens": [] }
+      ],
+      "notes": "Grill-at-the-table; great for loud groups."
+    },
+    {
+      "id": "luna-diner",
+      "name": "Luna Diner",
+      "type": "24h diner",
+      "size": "large",
+      "categories": ["dessert", "breakfast", "late-night"],
+      "rating": 4.1,
+      "price": "$$",
+      "walk_minutes": 9,
+      "ambience": { "noise": "moderate", "seats": 70, "laptop_friendly": true, "wifi": true, "outlets": "some" },
+      "good_for": ["late-night", "long-sits"],
+      "pickup": true,
+      "signature_items": [
+        { "name": "buttermilk pancake stack", "sweetness": "high", "allergens": [] },
+        { "name": "black-and-white milkshake", "sweetness": "high", "allergens": [] }
+      ],
+      "notes": "Open 24 hours; roomy booths."
+    }
+  ]
+}

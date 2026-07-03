@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   font-size: .8rem;
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   flex-shrink: 0;
   font-family: var(--font-display);
   font-weight: 700;
@@ -101,7 +101,7 @@
   line-height: 1.5;
 }
 .markdown blockquote {
-  border-left: 3px solid var(--accent-gold);
+  border-left: 3px solid var(--accent-berry);
   margin: .5em 0;
   padding: .3em 0 .3em .8em;
   color: var(--text-secondary);
@@ -120,7 +120,7 @@
   font-weight: 600;
 }
 .markdown a {
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   text-decoration: none;
 }
 .markdown a:hover { text-decoration: underline; }
@@ -246,9 +246,9 @@
   position: relative;
   width: 10px;
   height: 10px;
-  border: 1.5px solid var(--accent-gold);
+  border: 1.5px solid var(--accent-berry);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-gold-glow);
+  box-shadow: 0 0 10px var(--accent-berry-glow);
   flex-shrink: 0;
 }
 .searchGlyph::after {
@@ -259,7 +259,7 @@
   width: 5px;
   height: 1.5px;
   border-radius: 999px;
-  background: var(--accent-gold);
+  background: var(--accent-berry);
   transform: rotate(45deg);
 }
 .searchLabel {
@@ -277,7 +277,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: var(--accent-gold);
+  background: var(--accent-berry);
   opacity: .45;
   animation: searchDot 1.1s ease-in-out infinite;
 }
@@ -351,8 +351,8 @@
   height: 1.05em;
   margin-left: 3px;
   vertical-align: -0.18em;
-  background: var(--accent-gold);
-  box-shadow: 0 0 8px var(--accent-gold-glow);
+  background: var(--accent-berry);
+  box-shadow: 0 0 8px var(--accent-berry-glow);
   border-radius: 2px;
   animation: streamingCaretBlink 0.6s ease-in-out infinite;
 }

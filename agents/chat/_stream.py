@@ -33,9 +33,9 @@ except ImportError:  # Keep this module importable when SDK is missing.
 # Project skills configuration
 PROJECT_SKILLS = [
     {
-        "name": "sandbox-algorithms",
-        "label": "Sandbox algorithm execution",
-        "description": "Run deterministic algorithm scripts through the EdgeOne sandbox code_interpreter and return verified execution results.",
+        "name": "food-concierge",
+        "label": "Food concierge",
+        "description": "Personal food recommendation method plus the user's taste data: profile & allergies, restaurant catalog, order history, and post-visit feedback.",
     },
 ]
 

@@ -1,0 +1,118 @@
+{
+  "note": "Synthetic order history for the TasteBud demo. Each session: what the user asked, which options the app showed, what they chose, and the context that emerged.",
+  "sessions": [
+    {
+      "date": "2026-04-04",
+      "day": "Saturday evening",
+      "request": "somewhere fun for dessert with friends tonight",
+      "context": { "company": "friends (3)", "mode": "dine-in", "intent": "celebrate" },
+      "options_shown": ["molten", "copper-kettle", "luna-diner"],
+      "chose": "molten",
+      "item_ordered": "tableside chocolate souffle (shared)",
+      "note": "Asked staff about peanuts in the praline flight and skipped it."
+    },
+    {
+      "date": "2026-04-12",
+      "day": "Sunday afternoon",
+      "request": "dessert",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "work on laptop" },
+      "options_shown": ["sugar-rush", "amber-rye", "cielo"],
+      "chose": "amber-rye",
+      "item_ordered": "black sesame mille-feuille + pour-over",
+      "note": "Stayed about two hours working."
+    },
+    {
+      "date": "2026-04-18",
+      "day": "Friday noon",
+      "request": "quick lunch near the office",
+      "context": { "company": "solo", "mode": "pickup", "intent": "quick" },
+      "options_shown": ["verde-bowls", "bo-bao"],
+      "chose": "verde-bowls",
+      "item_ordered": "harissa chicken bowl",
+      "note": "Confirmed no peanut cross-contact before ordering."
+    },
+    {
+      "date": "2026-04-25",
+      "day": "Saturday morning",
+      "request": "coffee shop to get some work done",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "work on laptop" },
+      "options_shown": ["fern-filament", "copper-kettle"],
+      "chose": "fern-filament",
+      "item_ordered": "oat milk latte + canele"
+    },
+    {
+      "date": "2026-05-02",
+      "day": "Saturday afternoon",
+      "request": "dessert, somewhere calm",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "relax" },
+      "options_shown": ["matcha-ya", "copper-kettle", "molten"],
+      "chose": "matcha-ya",
+      "item_ordered": "hojicha pudding"
+    },
+    {
+      "date": "2026-05-09",
+      "day": "Saturday evening",
+      "request": "dinner with college friends, five of us",
+      "context": { "company": "friends (5)", "mode": "dine-in", "intent": "social" },
+      "options_shown": ["han-river", "nonna-lucia"],
+      "chose": "han-river",
+      "item_ordered": "galbi set for the table"
+    },
+    {
+      "date": "2026-05-16",
+      "day": "Saturday afternoon",
+      "request": "dessert",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "work on laptop" },
+      "options_shown": ["copper-kettle", "matcha-ya", "sugar-rush"],
+      "chose": "matcha-ya",
+      "item_ordered": "matcha kakigori",
+      "note": "Said the kakigori was 'exactly the right amount of sweet'."
+    },
+    {
+      "date": "2026-05-23",
+      "day": "Saturday noon",
+      "request": "lunch",
+      "context": { "company": "solo", "mode": "pickup", "intent": "quick" },
+      "options_shown": ["bo-bao", "verde-bowls"],
+      "chose": "bo-bao",
+      "item_ordered": "braised pork bao (3pc)"
+    },
+    {
+      "date": "2026-05-31",
+      "day": "Sunday afternoon",
+      "request": "dessert somewhere I can sit for a while",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "work on laptop" },
+      "options_shown": ["amber-rye", "luna-diner", "copper-kettle"],
+      "chose": "amber-rye",
+      "item_ordered": "rye honey madeleines + pour-over"
+    },
+    {
+      "date": "2026-06-06",
+      "day": "Saturday evening",
+      "request": "date-night dinner",
+      "context": { "company": "partner", "mode": "dine-in", "intent": "date" },
+      "options_shown": ["nonna-lucia", "han-river"],
+      "chose": "nonna-lucia",
+      "item_ordered": "tagliatelle al ragu, shared tiramisu after"
+    },
+    {
+      "date": "2026-06-13",
+      "day": "Saturday morning",
+      "request": "coffee",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "work on laptop" },
+      "options_shown": ["fern-filament"],
+      "chose": "fern-filament",
+      "item_ordered": "oat milk latte"
+    },
+    {
+      "date": "2026-06-21",
+      "day": "Sunday afternoon",
+      "request": "dessert",
+      "context": { "company": "solo", "mode": "dine-in", "intent": "quick treat" },
+      "options_shown": ["cielo", "amber-rye", "luna-diner"],
+      "chose": "cielo",
+      "item_ordered": "dark chocolate sorbetto",
+      "note": "Picked the least sweet flavor in the case."
+    }
+  ]
+}

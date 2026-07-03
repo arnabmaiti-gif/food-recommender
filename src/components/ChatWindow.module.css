@@ -21,8 +21,8 @@
 }
 .emptyIcon {
   font-size: 3rem;
-  color: var(--accent-gold);
-  filter: drop-shadow(0 0 12px var(--accent-gold-glow));
+  color: var(--accent-berry);
+  filter: drop-shadow(0 0 12px var(--accent-berry-glow));
 }
 .emptyTitle {
   font-family: var(--font-display);
@@ -42,7 +42,7 @@
 }
 .emptyFeatures {
   font-size: .68rem;
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   letter-spacing: .06em;
   margin-top: 4px;
   opacity: .7;
@@ -65,7 +65,7 @@
   align-items: center;
   justify-content: center;
   font-size: .85rem;
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   flex-shrink: 0;
 }
 .typing {

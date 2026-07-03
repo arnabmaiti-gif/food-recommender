@@ -81,11 +81,11 @@
    ACTIVE STATE
    ══════════════════════════════════════════════════════════ */
 .active {
-  color: var(--accent-gold);
+  color: var(--accent-berry);
   border-color: rgba(245,200,66,.55);
-  background: var(--accent-gold-dim);
+  background: var(--accent-berry-dim);
   box-shadow:
-    0 0  8px var(--accent-gold-glow),
+    0 0  8px var(--accent-berry-glow),
     0 0 22px rgba(245,200,66,.12),
     0 0 40px rgba(245,200,66,.06),
     inset 0  1px 0 rgba(255,255,255,.09),

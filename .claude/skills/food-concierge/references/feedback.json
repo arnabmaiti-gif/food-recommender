@@ -1,0 +1,68 @@
+{
+  "note": "Synthetic post-visit feedback for the TasteBud demo. Verbatim comments the user left after visits.",
+  "feedback": [
+    {
+      "place": "sugar-rush",
+      "date": "2026-03-14",
+      "rating": 2,
+      "comment": "Cinnamon roll frosting was way too sweet — left half of it. Nowhere to sit either.",
+      "tags": ["too_sweet", "no_seating"]
+    },
+    {
+      "place": "amber-rye",
+      "date": "2026-04-12",
+      "rating": 5,
+      "comment": "Quiet corner table and nobody rushed me for two hours. The mille-feuille is barely sweet — perfect.",
+      "tags": ["low_sugar", "work_friendly", "quiet"]
+    },
+    {
+      "place": "molten",
+      "date": "2026-04-05",
+      "rating": 4,
+      "comment": "So much fun with friends, but way too loud to go alone. Skipped the praline flight because of my peanut allergy — staff handled it well.",
+      "tags": ["lively", "group_fun", "peanut_risk"]
+    },
+    {
+      "place": "matcha-ya",
+      "date": "2026-05-17",
+      "rating": 5,
+      "comment": "Calmest room in the city. The kakigori is the right kind of sweet — subtle.",
+      "tags": ["quiet", "low_sugar"]
+    },
+    {
+      "place": "verde-bowls",
+      "date": "2026-04-18",
+      "rating": 4,
+      "comment": "They swapped the peanut sauce for tahini without making it weird. Pickup was ready in five minutes.",
+      "tags": ["allergy_accommodating", "fast_pickup"]
+    },
+    {
+      "place": "luna-diner",
+      "date": "2026-02-21",
+      "rating": 3,
+      "comment": "Pancakes drowned in syrup and the coffee was thin. Roomy booths though.",
+      "tags": ["too_sweet", "spacious"]
+    },
+    {
+      "place": "fern-filament",
+      "date": "2026-06-13",
+      "rating": 5,
+      "comment": "Plugs at every table and the canele is not too sweet. My default work spot.",
+      "tags": ["work_friendly", "low_sugar"]
+    },
+    {
+      "place": "han-river",
+      "date": "2026-05-09",
+      "rating": 5,
+      "comment": "Perfect for a loud group of five. Galbi set is the move.",
+      "tags": ["group_fun"]
+    },
+    {
+      "place": "nonna-lucia",
+      "date": "2026-06-06",
+      "rating": 4,
+      "comment": "Lovely dinner. The tiramisu was good but sweeter than I like — half was enough.",
+      "tags": ["slightly_too_sweet", "date_spot"]
+    }
+  ]
+}

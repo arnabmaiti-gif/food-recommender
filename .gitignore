@@ -43,6 +43,7 @@ plan/
 # AI assistant local instructions
 CLAUDE.md
 AGENTS.md
+.claude/settings.local.json
 
 # Tencent Cloud EdgeOne
 .env
