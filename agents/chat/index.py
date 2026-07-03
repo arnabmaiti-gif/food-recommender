@@ -160,9 +160,17 @@ def build_agent_options(
 ) -> "ClaudeAgentOptions":
     """Build Claude Agent SDK options. EdgeOne tools come from MCP."""
     cwd = os.getcwd()
+    home = os.path.expanduser("~")
+    # Cover every place the skills dir can resolve to. Deployed EdgeOne
+    # containers surface it under $HOME (e.g. /root/.claude/skills) while
+    # cwd points at the app bundle; under permission_mode="dontAsk" any
+    # unmatched Read is silently denied and the model falls back to asking
+    # the user for file access mid-chat.
     skill_read_allow_rules = [
         "Read(.claude/skills/**)",
         f"Read({cwd}/.claude/skills/**)",
+        "Read(~/.claude/skills/**)",
+        f"Read({home}/.claude/skills/**)",
     ]
     # Merge incoming MCP tool names with the built-in Read scoping rules.
     # The Python SDK's `settings` field only accepts a JSON-file path
