@@ -51,7 +51,8 @@ Trace panel.
 
 Follow [`DEMO_SCRIPT.md`](./DEMO_SCRIPT.md) for a 5-minute walkthrough (happy path → refinement
 → choice memory → allergy handling in another category). The original product spec is in
-[`docs/PRD.md`](./docs/PRD.md).
+[`docs/PRD.md`](./docs/PRD.md), and there's an 8-slide overview deck in
+[`slides/`](./slides/) ([PDF](./slides/TasteBud-slides.pdf) · [Marp source](./slides/SLIDES.md)).
 
 ## Environment Variables
 
