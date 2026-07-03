@@ -88,9 +88,9 @@ React + Vite chat (SSE stream, tool lamps, trace panel)
         │  POST /chat
         ▼
 EdgeOne Makers agent function (Python, Claude Agent SDK)
-        │  Skill + Read (scoped to .claude/skills/**)
+        │  per-request context injection
         ▼
-food-concierge skill = the entire "brain"
+agents/chat/knowledge/ = the entire "brain"
   ├─ SKILL.md ................ recommendation method
   ├─ profile.json ............ allergies, preset rules
   ├─ restaurants.json ........ 12-place catalog
@@ -105,14 +105,16 @@ taste-memory.json ← chosen options written back
 
 # The logic is *data*, not code
 
-- **SKILL.md** holds the method; **JSON files** hold the user's world;
-  the system prompt holds the guardrails
+- **JSON files** hold the user's world; the system prompt holds the
+  method and guardrails; both injected fresh on every request
 - Zero hardcoded scoring rules in the app — change the user by changing the data
+- Per-request injection is the multi-user shape already: swap synthetic
+  JSON for per-user records from storage
 - Synthetic persona crafted so patterns *pop* in a demo:
   peanut allergy · low-sugar habit · quiet laptop-friendly cafés ·
   one social exception · a 2★ grudge
-- **Watch it think**: the trace panel shows the skill load and every
-  data-file read, live
+- **Watch it think**: the trace panel streams the reasoning live; the
+  Taste Memory lamp fires when your choice is written back
 
 ---
 

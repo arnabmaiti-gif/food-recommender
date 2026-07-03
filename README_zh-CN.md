@@ -28,8 +28,10 @@
 | 点单历史（12 次会话） | `agents/chat/knowledge/references/order_history.json` |
 | 用后评价（9 条） | `agents/chat/knowledge/references/feedback.json` |
 
-> 数据的规范副本放在 `agents/chat/knowledge/`（部署打包一定会带上 handler 旁边的文件，
-> 但不一定带 dot 目录），冷启动时自动物化到 `{cwd}/.claude/skills/food-concierge/`。
+> 知识库在**请求时直接注入系统提示词**——与多用户版本的形态一致（按用户从存储取数据、逐请求注入）。
+> `agents/chat/knowledge/` 是可编辑的数据源；`scripts/embed_knowledge.py` 把它编译进
+> `agents/chat/_knowledge.py`，数据随代码一起打包，不受部署打包策略影响。
+> 想确认线上跑的是哪个版本，直接问 Agent：「which build are you?」
 
 ## 环境变量
 

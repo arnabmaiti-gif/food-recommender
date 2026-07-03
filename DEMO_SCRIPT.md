@@ -8,10 +8,13 @@ social exception in his history (dessert bar with friends).
 
 1. Deploy on EdgeOne Makers (or run `edgeone makers dev` locally) with `AI_GATEWAY_API_KEY`
    and `AI_GATEWAY_BASE_URL` set. Open the app.
-2. Click **New craving** in the sidebar so you start from a clean conversation.
-3. Make sure the language toggle (top right) is on the language you'll present in.
-4. Optional dry run: send one message so the sandbox is warm — the first request of a fresh
-   deployment is the slowest (skill load + four data reads).
+2. **Verify the build**: type `which build are you?` — the agent must answer with the current
+   build tag (see `BUILD_TAG` in `agents/chat/index.py`). If it doesn't, you're talking to a
+   stale deployment; redeploy before demoing anything.
+3. Click **New craving** in the sidebar so you start from a clean conversation.
+4. Make sure the language toggle (top right) is on the language you'll present in.
+5. Optional dry run: send one message so the sandbox is warm — the first request of a fresh
+   deployment is the slowest.
 
 > **Stage directions** are in blockquotes. Lines to type are in `code`.
 
@@ -29,10 +32,11 @@ Type (or click the first preset chip):
 I'm craving dessert
 ```
 
-> While it streams, point at the **Trace panel** on the right: "Watch what it's doing — it
-> loads a 'food-concierge' skill and reads four files: my profile, the restaurant catalog,
-> my order history, my feedback. This is the Claude Agent SDK's project-skill mechanism —
-> the recommendation logic is data, not hardcoded rules."
+> While it streams, point at the **Trace panel** on the right: "The agent's context is
+> injected server-side on every request — my profile, the restaurant catalog, my order
+> history, my feedback — exactly how a multi-user version would pull per-user records from
+> a store. The recommendation logic is data, not hardcoded rules, and you can watch the
+> reasoning stream here in real time."
 
 **Expect:** 2–3 options led by the quiet low-sugar cafés (Amber & Rye Patisserie and/or
 Matcha-ya Tea House), each with an evidence-based *why* — something like "5 of your 6 dessert
@@ -118,11 +122,12 @@ peanut sauce for tahini without making it weird".
 
 ## Q&A crib sheet
 
-- **Where do recommendations come from?** A project skill: `SKILL.md` (method) + four JSON
-  reference files (profile, catalog, history, feedback). No hardcoded rules in the app.
-- **How would this scale to real users?** Swap the synthetic JSON for per-user records in
-  EdgeOne storage; the choice-recording path (`taste-memory.json`) already sketches the
-  write-back loop.
+- **Where do recommendations come from?** Four JSON datasets (profile, catalog, history,
+  feedback) under `agents/chat/knowledge/`, injected verbatim into the agent's context on
+  every request. The method lives in the system prompt; no hardcoded scoring rules in the app.
+- **How would this scale to real users?** The injection point is already per-request — swap
+  the synthetic JSON for per-user records in EdgeOne storage; the choice-recording path
+  (`taste-memory.json`) already sketches the write-back loop.
 - **Why an agent instead of a scoring function?** The refinement dialogue ("predict what I'd
   answer") and evidence-quoting explanations are language-native tasks; the hard constraints
   (allergy filter) stay in the prompt/skill as non-negotiable rules.

@@ -43,11 +43,14 @@ dessert habit, a preference for quiet small cafés with wifi (dessert = solo wor
 one social exception (dessert bar with friends), a 2★ grudge against a too-sweet bakery, and a
 rating floor of ~4.4.
 
-The agent reads these files through the Claude Agent SDK's project-skill mechanism (`Skill` +
-`Read`, scoped to `.claude/skills/**`) — you can watch the reads happen live in the app's
-Trace panel. The canonical copy lives in `agents/chat/knowledge/` (deploy bundles reliably
-ship files next to the handler, but not dot-directories) and is materialized into
-`{cwd}/.claude/skills/food-concierge/` at cold start.
+The knowledge base is **embedded into the system prompt at request time** — the same shape a
+multi-user version would have, with per-user records fetched from a store and injected per
+request. `agents/chat/knowledge/` is the human-editable source; `scripts/embed_knowledge.py`
+compiles it into `agents/chat/_knowledge.py` so the data ships with the code no matter what
+deployment packaging does to loose files (live files still win when present). The sandbox
+`files` tool is used for one thing only: persisting chosen options to `taste-memory.json`.
+
+To check which build a deployment is running, just ask the agent: *"which build are you?"*
 
 ## Demo
 
@@ -87,9 +90,10 @@ Local agent metrics & traces: `http://localhost:8080/agent-metrics`.
 food-recommender/
 ├── agents/                          # Stateful EdgeOne Makers Agent Functions (Python)
 │   ├── chat/index.py               # POST /chat — SSE streaming; TasteBud system prompt
-│   ├── chat/knowledge/             # Recommendation method + synthetic taste data
-│   │   ├── SKILL.md               #   (materialized to .claude/skills/ at cold start)
+│   ├── chat/knowledge/             # Recommendation method + synthetic taste data (editable)
+│   │   ├── SKILL.md               #   the recommendation method, documented
 │   │   └── references/{profile,restaurants,order_history,feedback}.json
+│   ├── chat/_knowledge.py          # Same data embedded in code (generated — see scripts/)
 │   └── stop/index.py               # POST /stop — abort active agent run
 ├── cloud-functions/                 # Stateless CRUD: history, conversations, delete, clear
 ├── src/                             # React + Vite + TypeScript chat frontend
